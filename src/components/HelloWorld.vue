@@ -17,6 +17,8 @@
             end-placeholder="结束日期" style="width:100%;">
           </el-date-picker>
     </div>
+    <el-button @click="handle">点击弹出</el-button>
+    <el-dialog :visible.sync="view">1111111</el-dialog>
   </el-card>
   </div>
 </template>
@@ -32,7 +34,8 @@ export default {
       ],
       cycle:1,
       value1:[],
-      type:"daterange"
+      type:"daterange",
+      view:false
     }
   },
   mounted(){
@@ -62,6 +65,9 @@ export default {
                  }]
       }
       echart.setOption(option)
+    },
+    handle(){
+      this.view=true
     }
 
   },
@@ -104,4 +110,3 @@ a {
 }
 
 </style>
-
