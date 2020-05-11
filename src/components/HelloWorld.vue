@@ -37,7 +37,8 @@ export default {
       cycle:1,
       value1:[],
       type:"daterange",
-      view:false
+      view:false,
+      timer:null
     }
   },
   mounted(){
@@ -72,10 +73,10 @@ export default {
       this.view=true
     },
     onchange(e){
-      let timer
-      clearTimeout(timer)
-      timer=setTimeout(()=>{
-        let div=this.$refs.change
+      const that=this
+      clearTimeout(that.timer)
+      that.timer=setTimeout(()=>{
+        let div=that.$refs.change
          div.innerHTML=`(${e.clientX},${e.clientY})`
       },1000)
 
