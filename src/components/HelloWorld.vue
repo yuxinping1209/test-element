@@ -20,6 +20,8 @@
     <el-button @click="handle">点击弹出</el-button>
     <el-dialog :visible.sync="view">1111111</el-dialog>
   </el-card>
+  <div ref="change" style="width:300px; height:300px; border:1px solid red;"
+  @mousemove="onchange"></div>
   </div>
 </template>
 
@@ -68,8 +70,16 @@ export default {
     },
     handle(){
       this.view=true
-    }
+    },
+    onchange(e){
+      let timer
+      clearTimeout(timer)
+      timer=setTimeout(()=>{
+        let div=this.$refs.change
+         div.innerHTML=`(${e.clientX},${e.clientY})`
+      },1000)
 
+  }
   },
   watch:{
     cycle(){
@@ -82,6 +92,7 @@ export default {
       }
     }
   }
+
   }
 </script>
 
