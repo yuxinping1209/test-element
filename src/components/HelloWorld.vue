@@ -22,6 +22,12 @@
   </el-card>
   <div ref="change" style="width:300px; height:300px; border:1px solid red;"
   @mousemove="onchange"></div>
+  <div class="toggle">
+            <div class="wrapper" style="width:110px;height:30px;border-radius:20px;border:1px solid #f0f1f2;background-color:#f0f1f2;justify-content: space-around;">
+              <div :class="{'isactive':isshow==true}" style="width:70px;height:28px;border-radius:20px;" class="flex j-center a-center" @click="changeday">天</div>
+              <div :class="{'isactive':isshow==false}" style="width:70px;height:28px;border-radius:20px;" class="flex j-center a-center" @click="changemonth">月</div>
+            </div>
+          </div>
   </div>
 </template>
 
@@ -38,7 +44,8 @@ export default {
       value1:[],
       type:"daterange",
       view:false,
-      timer:null
+      timer:null,
+      isshow:true
     }
   },
   mounted(){
@@ -72,6 +79,8 @@ export default {
     handle(){
       this.view=true
     },
+    changeday(){this.isshow=true},
+    changemonth(){this.isshow=false},
     onchange(e){
       const that=this
       clearTimeout(that.timer)
@@ -119,6 +128,14 @@ a {
 }
 .time{
   width:30%;
+}
+.isactive{
+  color:#3A8EE6;
+  background-color:white;
+}
+.wrapper{
+  display:flex;
+  align-items:center;
 }
 
 </style>

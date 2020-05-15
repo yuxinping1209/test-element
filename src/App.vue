@@ -6,7 +6,7 @@
         <el-radio :label="1">出水</el-radio>
 
       </el-radio-group>
-    <In :water="water"></In>
+    <In :water1="water"></In>
     <router-view/>
   </div>
 </template>

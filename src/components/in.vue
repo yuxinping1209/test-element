@@ -14,9 +14,9 @@
        show:true
       }
     },
-    props:['water'],
+    props:['water1'],
     watch:{
-        water(value){
+        water1(value){
           console.log(value)
           this.show=!this.show
 
