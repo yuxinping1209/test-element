@@ -28,7 +28,17 @@
               <div :class="{'isactive':isshow==false}" style="width:70px;height:28px;border-radius:20px;" class="flex j-center a-center" @click="changemonth">月</div>
             </div>
           </div>
+          <div class="circle">
+
+          </div>
+          <div class="circle3">
+          
+          </div>
+          <div class="circle2">
+
+          </div>
   </div>
+
 </template>
 
 <script>
@@ -83,6 +93,7 @@ export default {
     changemonth(){this.isshow=false},
     onchange(e){
       const that=this
+      //清除定时器会直接跳到最后的结果，而不显示过程
       clearTimeout(that.timer)
       that.timer=setTimeout(()=>{
         let div=that.$refs.change
@@ -136,6 +147,25 @@ a {
 .wrapper{
   display:flex;
   align-items:center;
+}
+.circle{
+  width:100px;
+  height:100px;
+  border:1px solid #000000;
+  border-radius:50%;
+}
+.circle2{
+  width:100px;
+  height:100px;
+  border:2px solid #000000;
+  border-radius:50%;
+}
+.circle3{
+  width:100px;
+  height:100px;
+  border:2px solid #000000;
+  border-radius:50%;
+  transform:scale(0.4);
 }
 
 </style>
